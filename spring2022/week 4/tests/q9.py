@@ -6,13 +6,8 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> type(time1) == float
+          >>> abs(average_rating_in_eighties - 8.241935483870968) < 1e-5
           True
-          >>> type(time0) == time.struct_time
-          True
-          >>> difftemeA == 61344000
-          True
-          >>> difftemeB == 61344000.0
           """,
           'hidden': False,
           'locked': False

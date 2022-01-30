@@ -6,13 +6,8 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> type(time1) == float
+          >>> num_odd_year_movies == 123
           True
-          >>> type(time0) == time.struct_time
-          True
-          >>> difftemeA == 61344000
-          True
-          >>> difftemeB == 61344000.0
           """,
           'hidden': False,
           'locked': False

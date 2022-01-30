@@ -1,18 +1,18 @@
 test = {
-  'name': '',
+  'name': 'Question 1',
   'points': 1,
   'suites': [
     {
       'cases': [
         {
           'code': r"""
-          >>> type(time1) == float
+          >>> type(table_var) == tables.Table
           True
-          >>> type(time0) == time.struct_time
+          >>> import numpy as np
+          >>> type(array_var) == np.ndarray
           True
-          >>> difftemeA == 61344000
+          >>> type(col_type) == str
           True
-          >>> difftemeB == 61344000.0
           """,
           'hidden': False,
           'locked': False

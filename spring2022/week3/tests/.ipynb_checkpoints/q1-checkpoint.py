@@ -1,18 +1,15 @@
 test = {
-  'name': '',
+  'name': 'Question 1',
   'points': 1,
   'suites': [
     {
       'cases': [
         {
           'code': r"""
-          >>> type(time1) == float
-          True
           >>> type(time0) == time.struct_time
           True
-          >>> difftemeA == 61344000
+          >>> type(time1) == float
           True
-          >>> difftemeB == 61344000.0
           """,
           'hidden': False,
           'locked': False

@@ -6,13 +6,12 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> type(time1) == float
+          >>> type(my_flower) == list
           True
-          >>> type(time0) == time.struct_time
+          >>> type(my_flower[0]) == int
           True
-          >>> difftemeA == 61344000
+          >>> type(my_flower[1]) == str and my_flower[1] != ''
           True
-          >>> difftemeB == 61344000.0
           """,
           'hidden': False,
           'locked': False

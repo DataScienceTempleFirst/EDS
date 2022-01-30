@@ -1,18 +1,15 @@
 test = {
-  'name': '',
+  'name': 'Question 7',
   'points': 1,
   'suites': [
     {
       'cases': [
         {
           'code': r"""
-          >>> type(time1) == float
+          >>> type(epi_changes) == tables.Table
           True
-          >>> type(time0) == time.struct_time
-          True
-          >>> difftemeA == 61344000
-          True
-          >>> difftemeB == 61344000.0
+          >>> list(epi_changes.column('Country').take(range(3)))
+          ['Bahrain', 'Seychelles', 'Croatia']
           """,
           'hidden': False,
           'locked': False

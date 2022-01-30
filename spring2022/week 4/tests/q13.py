@@ -6,13 +6,10 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> type(time1) == float
+          >>> proportion_in_20th_century == 0.684
           True
-          >>> type(time0) == time.struct_time
+          >>> proportion_in_21st_century == 0.316
           True
-          >>> difftemeA == 61344000
-          True
-          >>> difftemeB == 61344000.0
           """,
           'hidden': False,
           'locked': False

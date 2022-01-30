@@ -6,13 +6,10 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> type(time1) == float
+          >>> average_latitude == 39.186464523495417
           True
-          >>> type(time0) == time.struct_time
+          >>> average_longitude == -90.992580812926292
           True
-          >>> difftemeA == 61344000
-          True
-          >>> difftemeB == 61344000.0
           """,
           'hidden': False,
           'locked': False
