@@ -1,12 +1,12 @@
 test = {
-  'name': 'q1.2',
+  'name': 'q3.3',
   'points': 1,
   'suites': [
     {
       'cases': [
         {
           'code': r"""
-          >>> 0 <= rough_success_chance <= 1
+          >>> freq.sort("frequency",descending=True).column("frequency").take(0) > 0.105
           True
           """,
           'hidden': False,

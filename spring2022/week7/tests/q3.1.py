@@ -1,12 +1,12 @@
 test = {
-  'name': 'q1.2',
+  'name': 'q3.3',
   'points': 1,
   'suites': [
     {
       'cases': [
         {
           'code': r"""
-          >>> 0 <= rough_success_chance <= 1
+          >>> letter_freq("TEMPLE").column('letters').take(0) == 't'
           True
           """,
           'hidden': False,

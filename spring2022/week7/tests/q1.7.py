@@ -1,12 +1,13 @@
 test = {
-  'name': 'q1.2',
+  'name': 'q1.5',
   'points': 1,
   'suites': [
     {
       'cases': [
         {
           'code': r"""
-          >>> 0 <= rough_success_chance <= 1
+          >>> # Make sure your estimator is subtracting a reasonable value from the mean observation
+          >>> 0.6*modifier < estimated_modifier <  1.5*modifier 
           True
           """,
           'hidden': False,

@@ -1,12 +1,12 @@
 test = {
-  'name': 'q1.2',
+  'name': 'q3.2',
   'points': 1,
   'suites': [
     {
       'cases': [
         {
           'code': r"""
-          >>> 0 <= rough_success_chance <= 1
+          >>> total_letters == 750341
           True
           """,
           'hidden': False,

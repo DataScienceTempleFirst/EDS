@@ -1,12 +1,12 @@
 test = {
-  'name': 'q1.2',
+  'name': 'q2.1',
   'points': 1,
   'suites': [
     {
       'cases': [
         {
           'code': r"""
-          >>> 0 <= rough_success_chance <= 1
+          >>> calcGC('GTGACCCCAGGTCAGGCGGGGGCACCCGCTGAGTTTACGC', 10)[0] == 0.7
           True
           """,
           'hidden': False,

@@ -1,12 +1,20 @@
 test = {
-  'name': 'q1.2',
+  'name': 'q1.5',
   'points': 1,
   'suites': [
     {
       'cases': [
         {
           'code': r"""
-          >>> 0 <= rough_success_chance <= 1
+          >>> min_estimate <= modifier
+          True
+          """,
+          'hidden': False,
+          'locked': False
+        },
+        {
+          'code': r"""
+          >>> min_estimate == min(observations)
           True
           """,
           'hidden': False,
