@@ -6,21 +6,13 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> min_estimate >= modifier
-          True
-          """,
-          'hidden': False,
-          'locked': False
-        },
-        {
-          'code': r"""
-          >>> min_estimate == min(observations)-1
+          >>> (roll_bins == np.arange(1, modifier+2+20, 1))[0]
           True
           """,
           'hidden': False,
           'locked': False
         }
-      ],
+          ],
       'scored': True,
       'setup': '',
       'teardown': '',
