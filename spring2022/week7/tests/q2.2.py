@@ -6,7 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> median10 == 0.6
+          >>> median == 0.6
           True
           """,
           'hidden': False,
