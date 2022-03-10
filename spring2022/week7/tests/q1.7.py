@@ -6,8 +6,8 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> # Make sure your estimator is subtracting a reasonable value from the mean observation
-          >>> 0.6*modifier < estimated_modifier <  1.5*modifier 
+          >>> # Make sure your estimate is subtracting minimumdie roll of 1
+          >>> modifier-7 < estimated_modifier <  modifier+7 
           True
           """,
           'hidden': False,
