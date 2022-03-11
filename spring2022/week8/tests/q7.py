@@ -14,9 +14,9 @@ test = {
         }, 
         {
           'code': r"""
-          >>> max(samples) < 400
+          >>> max(samples) < 1200
           True
-          >>> min(samples) > -400
+          >>> min(samples) > -1200
           True
           """,
           'hidden': False,
