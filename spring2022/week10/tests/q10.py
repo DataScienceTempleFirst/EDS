@@ -6,7 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> pop_vs_sample == 3
+          >>> bootstrap_sampled_SD == 3
           True
           """,
           'hidden': False,

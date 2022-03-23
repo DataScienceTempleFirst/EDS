@@ -6,10 +6,13 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> (slope*13 - 100)/98 <= 0.5
+          >>> test = Table.read_table('sf_salaries_2014.csv').select("salary")
+          >>> len(simulate_sample_mean(test, 'salary', 100, 100)) == 100
           True
-          >>> (182 + intercept*(-4)) / 201 >= 0.3
-          False
+          >>> min(means) > -618
+          True
+          >>> max(means) < 471952.64
+          True
           """,
           'hidden': False,
           'locked': False
