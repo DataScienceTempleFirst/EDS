@@ -8,7 +8,7 @@ test = {
           'code': r"""
           >>> predictor_col == 'duration'
           True
-          >>> typ(name) == str()
+          >>> type(name) == str()
           True
           """,
           'hidden': False,
