@@ -8,8 +8,6 @@ test = {
           'code': r"""
           >>> predictor_col == 'duration'
           True
-          >>> type(name) == str()
-          True
           """,
           'hidden': False,
           'locked': False
