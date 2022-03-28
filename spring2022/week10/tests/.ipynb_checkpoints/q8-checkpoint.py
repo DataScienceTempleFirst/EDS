@@ -7,11 +7,12 @@ test = {
         {
           'code': r"""
           >>> test = Table.read_table('sf_salaries_2014.csv').select("salary")
-          >>> len(simulate_sample_mean(test, 'salary', 100, 100)) == 100
+          >>> call = simulate_sample_mean(test, 'salary', 100, 100)
+          >>> len(call) == 100
           True
-          >>> min(simulate_sample_mean(test, 'salary', 100, 100)) > -618
+          >>> min(call) > -618
           True
-          >>> max(simulate_sample_mean(test, 'salary', 100, 100)) < 471952.64
+          >>> max(call) < 471952.64
           True
           """,
           'hidden': False,
