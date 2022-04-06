@@ -6,7 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> type(molecular_name)==str
+          >>> prediction.num_rows == 30
           True
           """,
           'hidden': False,

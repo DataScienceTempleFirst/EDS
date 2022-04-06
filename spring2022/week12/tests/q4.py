@@ -6,7 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> prediction.num_rows == 30
+          >>> prediction <= 100.0
           True
           """,
           'hidden': False,

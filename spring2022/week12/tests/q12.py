@@ -6,8 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> table=Table().with_columns('Name',make_array(2,2,1,0))
-          >>> majority(table) == 2
+          >>> train_nn.num_rows == 1475
           True
           """,
           'hidden': False,

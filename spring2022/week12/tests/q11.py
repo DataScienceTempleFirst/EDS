@@ -6,8 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> table=Table().with_columns('Name',make_array(2,2,1,0))
-          >>> majority(table) == 2
+          >>> amino.num_rows > 1.0
           True
           """,
           'hidden': False,
