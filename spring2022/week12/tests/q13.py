@@ -6,7 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> example_nn_row.num_rows == 1
+          >>> len(example_nn_row) == 10
           True
           """,
           'hidden': False,
