@@ -28,17 +28,8 @@ name = ...
 
 # %%
 ## import statements
-try:
-    # These lines load the tests. 
-    from gofer.ok import check
-    
-except:
-    # Install a pip package in the current Jupyter kernel
-    import sys
-    !{sys.executable} -m pip install git+https://github.com/grading/gradememaybe.git
-
-    # These lines load the tests. 
-    from gofer.ok import check
+# These lines load the tests. 
+from gofer.ok import check
 import numpy as np
 from datascience import *
 import pandas as pd
