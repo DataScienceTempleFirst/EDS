@@ -28,8 +28,17 @@ name = ...
 
 # %%
 ## import statements
-# These lines load the tests. 
-from gofer.ok import check
+try:
+    # These lines load the tests. 
+    from gofer.ok import check
+    
+except:
+    # Install a pip package in the current Jupyter kernel
+    import sys
+    !{sys.executable} -m pip install git+https://github.com/grading/gradememaybe.git
+
+    # These lines load the tests. 
+    from gofer.ok import check
 import numpy as np
 from datascience import *
 import pandas as pd
@@ -37,7 +46,6 @@ import matplotlib
 from matplotlib import patches
 %matplotlib inline
 import matplotlib.pyplot as plt
-import seaborn as sns
 import warnings
 warnings.simplefilter('ignore', FutureWarning)
 plt.style.use('fivethirtyeight')
@@ -150,22 +158,22 @@ interact(
 # The `drivers.csv` dataset contains the speeds and distances-from-start of 100 drivers.  They all left the same starting location at the same time, driving at a fixed speed on a straight line away from the start.  The measurements aren't exact, so they don't fit exactly on a line.  We've created a scatter plot and drawn a line through the data.
 
 # %%
-# Just run this cell to plot the data.
+# Just run this cell.
 small_driving_example = Table().with_columns(
         "Name",                                       make_array("Us", "Mei"),
         "Speed moving away from us (miles per hour)", make_array(0,    60),
         "Current distance from us (miles)",           make_array(0,    120))
 
-x = small_driving_example.column("Speed moving away from us (miles per hour)")
-y = small_driving_example.column("Current distance from us (miles)")
-plt.scatter(x,y, s=200)
+small_driving_example.scatter(1, 2, s=200, fit_line=True)
 
-# Now compute the fit and overlay
-linear_model=np.polyfit(x,y,1)
-linear_model_fn=np.poly1d(linear_model)
-x_s=np.arange(0,60)
-plt.plot(x_s,linear_model_fn(x_s),color="green")
-plt.show()
+# Fancy magic to draw each person's name with their dot.
+with_slope_indicator = small_driving_example.with_row(
+    ["Slope = 2\ hours", small_driving_example.column(1).mean(), small_driving_example.column(2).mean()])
+for i in range(with_slope_indicator.num_rows):
+    name = with_slope_indicator.column(0).item(i)
+    x = with_slope_indicator.column(1).item(i)
+    y = with_slope_indicator.column(2).item(i)
+    plt.scatter(make_array(x - 15), make_array(y + 15), s=1000*len(name), marker="$\mathrm{" + name + "}$")
 
 # %% [markdown]
 # #### Question 3
@@ -173,17 +181,7 @@ plt.show()
 
 # %%
 # Just run this cell.
-drivers= Table.read_table("drivers.csv")
-xd,yd = drivers.column("Speed moving away from us (miles per hour)"),drivers.column("Current distance from us (miles)")
-drivers
-
-# %%
-plt.scatter(xd,yd, color='red')
-# Second approach to plotting
-
-#create scatterplot with regression line and confidence interval lines using Seaborn module
-sns.regplot(xd, yd)
-plt.show()
+Table.read_table("drivers.csv").scatter(0, 1, fit_line=True)
 
 # %%
 ##### Fill in the start time you infer from the above line.
@@ -238,16 +236,6 @@ check('tests/q4.py')
 #
 # $$\text{the supernova's actual distance from Earth} - \text{the height of the line at that supernova's speed.}$$
 
-# %%
-## TEST Fitting a practice line with slope and intercept that you pick 
-slope = ...
-intercept = ...
-predict = close_novas.column('Speed (parsecs/year)')*slope+intercept
-tbl = close_novas.with_column('predict',predict/1e6)
-#tbl = 
-tbl
-
-
 # %% [markdown]
 # #### Question 5
 # Define a function called `errors`.  It should take three arguments:
@@ -257,18 +245,21 @@ tbl
 #
 # It should return an array of the errors made when a line with that slope and intercept is used to predict distance from speed for each supernova in the given table.  (The error is the actual distance minus the predicted distance.)
 
+# %%
+slope = ...
+intercept = ...
+predict = close_novas.column('Speed (parsecs/year)')*slope+intercept
+tbl = close_novas.with_column('predict',predict/1e6)
+#tbl = 
+tbl
+
+
 # %% for_assignment_type="student"
 def errors(tbl, slope, intercept):
-    ## extract values from table  
-    ...
+    tbl = tbl.with_columns('predict',tbl.column('Speed (parsecs/year)')*slope+intercept, 
+    'error',tbl.column('Distance (million parsecs)')-tbl.column('Speed (parsecs/year)')*slope+intercept)
     
-    ## predicted values from line  
-    predicted_y = ...
-    
-    ## errors 
-    error_values = ...
-    
-    return ...
+    return tbl.column('error')
 
 
 # %% [markdown]
@@ -385,14 +376,11 @@ best_line_intercept = ...
 new_errors = ...
 
 # This code displays the residual plot, given your values for the best_line_slope and best_line_intercept
-best=Table().with_columns("Speed (parsecs/year)", 
+Table().with_columns("Speed (parsecs/year)", 
                     close_novas.column("Speed (parsecs/year)"), 
                     "Distance errors (million parsecs)", 
                     new_errors
-                   )
-xb,yb = best.column("Speed (parsecs/year)"),best.column("Distance errors (million parsecs)")
-sns.regplot(xb, yb)
-plt.show()
+                   ).scatter(0, 1, fit_line=True)
 
 # This just shows your answer as a nice string, in billions of years.
 "Slope: {:g} (corresponding to an estimated age of {:,} billion years)".format(best_line_slope, round(best_line_slope/1000, 4))
