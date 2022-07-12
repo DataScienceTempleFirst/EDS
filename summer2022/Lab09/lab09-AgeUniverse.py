@@ -214,7 +214,11 @@ check('tests/q3.py')
 close_novas = Table.read_table("close_novas.csv")
 close_novae = close_novas
 
-close_novas.scatter(0, 1, fit_line=True)
+
+xn,yn = close_novae.column("Speed (parsecs/year)"),close_novae.column("Distance (million parsecs)")
+sns.regplot(xn, yn)
+plt.show()
+
 close_novas
 
 # %%
@@ -229,7 +233,7 @@ check('tests/q4.py')
 
 # %% [markdown]
 # ### Fitting the line yourself
-# `fit_line=True` is convenient, but we need to be able to calculate the slope as a number.  Recall that the least-squares regression line for our supernova data is:
+# Displaying a fit line is visually helpful but we need to be able to calculate the slope as a number.  Recall that the least-squares regression line for our supernova data is:
 # * the line
 # * with the smallest average (over all the supernovae we observe)
 # * error,
