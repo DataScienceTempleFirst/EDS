@@ -43,6 +43,10 @@ warnings.simplefilter('ignore', FutureWarning)
 plt.style.use('fivethirtyeight')
 from ipywidgets import interact, interactive, fixed
 import ipywidgets as widgets
+# Fix for datascience collections Iterable
+import collections as collections
+import collections.abc as abc
+collections.Iterable = abc.Iterable
 
 # %% [markdown]
 # ### The Actual Big Bang Theory
