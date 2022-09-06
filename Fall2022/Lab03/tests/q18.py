@@ -6,9 +6,9 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> average_latitude == 39.186464523495417
+          >>> average_latitude >= 38.0
           True
-          >>> average_longitude == -90.992580812926292
+          >>> average_longitude <= -90.0
           True
           """,
           'hidden': False,
