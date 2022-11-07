@@ -6,7 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> train.num_rows == 1475
+          >>> type(molecular_name)==str
           True
           """,
           'hidden': False,
