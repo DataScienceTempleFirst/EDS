@@ -6,7 +6,7 @@ test = {
       'cases': [
         {
           'code': r"""
-          >>> type(molecular_name)==str
+          >>> type(k)==int
           True
           """,
           'hidden': False,
